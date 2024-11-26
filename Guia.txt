@@ -1,0 +1,89 @@
+Aula >>> Setup do projeto com Vite, Storybook e Tailwind
+
+Se for um projeto apenas com o intuito de ter os componentes e não de rodar um front
+pode remover tudo do front e deixar apenas arquivos relacionados ao storybook
+
+conf eslint
+
+yarn add -D eslint@8
+yarn eslint --init
+
+to check syntax find problems enforce code style
+javascript
+react
+typescript yes
+browser
+answer quesrions about your style
+json
+space
+single unix
+semicols yes
+
+conf storybook
+
+https://storybook.js.org/docs/get-started/frameworks/nextjs?renderer=react
+
+Aula >>> Criando os Componentes do UI Kit
+
+conf shadcn
+
+conf dark theme storybook + tailwind
+
+yarn add -D @storybook/addon-themes
+
+Aula >>> Configurando o build com tsup
+
+conf tsup 
+
+yarn add tsup --dev
+
+Aula >>> Buildando o Tailwind e excluindo os arquivos das stories do css final
+
+ensinando como retirar classes usada no storybok para alinhar dentro dele fora do componente final
+por exemplo: alinhei um botao no meio da telado storybook e ele não deve ficar no meio do meu projeto
+ao usar mais tarde
+
+Aula >>> Publicando o pacote no NPM
+
+npm login
+npm whoami
+npm publish > precisa por o private: false e o atributo files com a pasta dos componentes quais quero subir no npm no package.json se não ele vai subir o projeto inteiro
+
+Aula >>> Entendendo pacotes privados e publicando o pacote dentro da Organization com scopes
+
+no package criar or para publicar pacotes ao criar precisa por @ na frente do nome e / seguido de um nome como o nome do pacote
+exemplo "name": "@uitestecapopetrus/ui"
+
+por padrao o npm publish vai tentar upar como privado é preciso por npm publish --access public pra ir publico
+ou colocar isso no package
+"publishConfig": {
+    "access": "public"
+  },
+
+Aula >>> Usando o pacote
+
+conf no package, pois nao estava reconhecendo ao importar os componentes em outro projeto
+
+"main": "./dist/index.js",
+"module": "./dist/index.mjs",
+"types": "./dist/index.d.ts",
+
+Aula >>> Mapeando os arquivos do pacote com exports no package.json
+
+mapeamos todos os imports e types da pasta dist para que ao usar em um projeto seja possivel ele validar automáticamente onde o arquivo está
+
+"exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "default": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./styles.css": "./dist/index.css",
+    "./utils": {
+      "import": "./dist/utils.mjs",
+      "default": "./dist/utils.mjs",
+      "require": "./dist/utils.js",
+      "types": "./dist/utils.d.ts"
+    }
+  },

@@ -1,0 +1,78 @@
+{
+  "name": "@uitestecapopetrus/ui",
+  "version": "0.0.7",
+  "private": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "main": "./dist/src/index.js",
+  "module": "./dist/src/index.mjs",
+  "types": "./dist/src/index.d.ts",
+  "exports": {
+  ".": {
+    "import": "./dist/src/index.mjs",
+    "require": "./dist/src/index.js",
+    "types": "./dist/src/index.d.ts",
+    "default": "./dist/src/index.mjs"
+  },
+  "./styles.css": "./dist/src/styles/globals.css",
+  "./utils": {
+    "import": "./dist/src/utils.mjs",
+    "require": "./dist/src/utils.js",
+    "types": "./dist/src/utils.d.ts",
+    "default": "./dist/src/utils.mjs"
+  },
+  "./tailwind-preset": {
+    "import": "./dist/tailwind.config.mjs",
+    "require": "./dist/tailwind.config.js",
+    "types": "./dist/tailwind.config.d.ts",
+    "default": "./dist/tailwind.config.mjs"
+  }
+},
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "build:tsup": "tsup",
+    "build:watch": "tsup --watch"
+  },
+  "dependencies": {
+    "@radix-ui/react-avatar": "^1.1.1",
+    "@radix-ui/react-dropdown-menu": "^2.1.2",
+    "@radix-ui/react-slot": "^1.1.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.460.0",
+    "next": "15.0.3",
+    "react": "19.0.0-rc-66855b96-20241106",
+    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "tailwind-merge": "^2.5.4"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^8.4.4",
+    "@storybook/addon-themes": "^8.4.4",
+    "@storybook/blocks": "^8.4.4",
+    "@storybook/nextjs": "^8.4.4",
+    "@storybook/react": "^8.4.4",
+    "@storybook/test": "^8.4.4",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "15.0.3",
+    "eslint-plugin-storybook": "^0.11.0",
+    "postcss": "^8",
+    "storybook": "^8.4.4",
+    "tailwindcss": "^3.4.1",
+    "tailwindcss-animate": "^1.0.7",
+    "tsup": "^8.3.5",
+    "typescript": "^5"
+  }
+}
