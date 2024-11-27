@@ -16,8 +16,6 @@ jobs:
           registry-url: https://npm.pkg.github.com
           scope: '@petrusborges'
           cache: 'yarn'
-      - name: Configure npm registry
-        run: echo "@petrusborges:registry=https://npm.pkg.github.com" >> ~/.npmrc
       - name: Install deps
         run: yarn install --frozen-lockfile
       - name: Build
